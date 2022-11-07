@@ -1,0 +1,17 @@
+--- a/vendor/devio/pipedrive/src/Builder.php	2022-08-18 21:39:24.197926889 +0200
++++ b/vendor/devio/pipedrive/src/Builder.php	2022-08-18 21:42:57.198021157 +0200
+@@ -78,6 +78,14 @@
+                 continue;
+             }
+ 
++            if (is_object($value)) {
++                if (isset($value->id)) {
++                    $value = $value->id;
++                } else {
++                    continue;
++                }
++            }
++
+             $endpoint = preg_replace("/:{$key}/", $value, $endpoint);
+         }
+ 

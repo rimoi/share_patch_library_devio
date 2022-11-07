@@ -1,0 +1,42 @@
+{
+    "type": "...",
+    "license": "...",
+    "require": {
+        
+        "cweagans/composer-patches": "^1.7",
+        "devio/pipedrive": "^2.12",
+      
+      /* ...others */
+    },
+    "require-dev": {
+        /* ...others */
+    },
+    "config": {
+        "preferred-install": "source",
+        "sort-packages": true,
+        /* ...others */
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+   
+    "extra": {
+        "enable-patching": true,
+        "patches": {
+            "devio/pipedrive": {
+                "Update of lead does not work, waiting for the correction https://github.com/IsraelOrtuno/pipedrive/pull/121 builder": "patches/builder.patch",
+                "Update of lead does not work, waiting for the correction https://github.com/IsraelOrtuno/pipedrive/pull/121 leads": "./patches/leads.patch",
+                "Update of lead does not work, waiting for the correction https://github.com/IsraelOrtuno/pipedrive/pull/121 pipedrive_client": "./patches/pipedrive_client.patch",
+                "Update of lead does not work, waiting for the correction https://github.com/IsraelOrtuno/pipedrive/pull/121 request": "./patches/request.patch"
+            }
+        }
+    }
+    
+}

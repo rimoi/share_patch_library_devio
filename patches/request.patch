@@ -1,0 +1,19 @@
+--- a/vendor/devio/pipedrive/src/Http/Request.php	2022-08-18 10:38:14.605017897 +0200
++++ b/vendor/devio/pipedrive/src/Http/Request.php	2022-08-18 17:25:02.985616247 +0200
+@@ -10,6 +10,7 @@
+  * @method Response get($type, $target, $options = [])
+  * @method Response post($type, $target, $options = [])
+  * @method Response put($type, $target, $options = [])
++ * @method Response patch($type, $target, $options = [])
+  * @method Response delete($type, $target, $options = [])
+  */
+ class Request
+@@ -144,7 +145,7 @@
+      */
+     public function __call($name, $args = [])
+     {
+-        if (in_array($name, ['get', 'post', 'put', 'delete'])) {
++        if (in_array($name, ['get', 'post', 'put', 'patch', 'delete'])) {
+             $options = !empty($args[1]) ? $args[1] : [];
+ 
+             // Will pass the function name as the request type. The second argument
